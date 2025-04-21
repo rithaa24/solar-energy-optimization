@@ -1,4 +1,7 @@
-Here's a detailed and well-structured `README.md` file for your **AI-Driven Solar Energy Forecasting using LSTM** project:
+# AI-Driven Solar Energy Forecasting
+Predictive analysis with LSTM and efficiency metrics. Optimized using Haritha’s custom enhancements.
+
+ **AI-Driven Solar Energy Forecasting using LSTM** project:
 
 ---
 
@@ -136,7 +139,7 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 👩‍💻 Built by
 
-**Haritha** — Engineering Student | AI Enthusiast | Solar Innovator  
+**Siva Haritha** — Engineering Student | AI Enthusiast | Solar Innovator  
 Let’s connect: [LinkedIn](#) • [Email](#) • [GitHub](#)
 
 ```
