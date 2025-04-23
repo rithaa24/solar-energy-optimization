@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <title>Overall Analysis | Solar Forecast Dashboard</title>
+
+    <link rel="shortcut icon" href="./img/icons/icon-48x48.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card-custom {
+            border-left: 5px solid #0d6efd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #0d6efd;
+        }
+        p.description {
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar js-sidebar">
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="index.html">
+                    <img src="img/icons/MNRE.png" alt="MNRE Logo" style="height: 40px; width: auto;">
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">Pages</li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="index.html">
+                            <i class="align-middle" data-feather="home"></i> <span class="align-middle">Home</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-cards.html">
+                            <i class="align-middle" data-feather="book"></i>
+                            <span class="align-middle">References</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="maps-google.html">
+                            <i class="align-middle" data-feather="tag"></i>
+                            <span class="align-middle">Parameters</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-header">Data Analysis</li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="charts-chartjs.html">
+                            <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="pages-profile.html">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Overall Data Analysis</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="pages-blank.html">
+                            <i class="align-middle" data-feather="bar-chart"></i>
+                            <span class="align-middle">Model Performance</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-header">Summary</li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-typography.html">
+                            <i class="align-middle" data-feather="list"></i>
+                            <span class="align-middle">Overall Summary</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-forms.html">
+                            <i class="align-middle" data-feather="sidebar"></i>
+                            <span class="align-middle">Q&A</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                <span class="text-dark">Siva Haritha</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="{{ url_for('profile') }}"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                                <a class="dropdown-item" href="{{ url_for('charts') }}"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('settings') }}"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+                                <a class="dropdown-item" href="{{ url_for('help') }}"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <!-- Main Content -->
+	<div class="main">
+		<main class="content">
+		  <div class="container-fluid p-4">
+			<h1 class="mb-4 text-primary">📊 LSTM Model Evaluation Metrics</h1>
+	  
+			<div class="card">
+			  <div class="card-body">
+				<div class="table-responsive">
+				  <table class="table table-striped table-bordered align-middle mb-0">
+					<thead class="table-primary">
+                      <tr>
+						<th>samplingFrequency</th>
+						<th>polynomialAugmentation</th>
+						<th>features</th>
+						<th>history</th>
+						<th>nbIter</th>
+						<th>nbEpoch</th>
+						<th>MAPE_min</th>
+						<th>MAPE_med</th>
+						<th>MAPE_max</th>
+						<th>MAPE_std</th>
+						<th>MAPE_CI</th>
+						<th>MAPE_mean</th>
+						<th>RMSE_min</th>
+						<th>RMSE_med</th>
+						<th>RMSE_max</th>
+						<th>RMSE_std</th>
+						<th>RMSE_CI</th>
+						<th>RMSE_mean</th>
+						<th>nRMSE</th>
+						<th>MAE_min</th>
+						<th>MAE_med</th>
+						<th>MAE_max</th>
+						<th>MAE_std</th>
+						<th>MAE_CI</th>
+						<th>MAE_mean</th>
+						<th>nMAE</th>
+						<th>R2_min</th>
+						<th>R2_med</th>
+						<th>R2_max</th>
+						<th>R2_std</th>
+						<th>R2_CI</th>
+						<th>R2_mean</th>
+						<th>MBE_min</th>
+						<th>MBE_med</th>
+						<th>MBE_max</th>
+						<th>MBE_std</th>
+						<th>MBE_CI</th>
+						<th>MBE_mean</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+					<tr>
+						<td>7_days</td>
+						<td>4</td>
+						<td>GHI_season</td>
+						<td>10</td>
+						<td>10</td>
+						<td>0.0</td>
+						<td>17.846750</td>
+						<td>18.080250</td>
+						<td>20.600218</td>
+						<td>0.856691</td>
+						<td>0.128503</td>
+						<td>18.452231</td>
+						<td>72.773042</td>
+						<td>73.272977</td>
+						<td>81.224662</td>
+						<td>2.555815</td>
+						<td>0.094913</td>
+						<td>74.329729</td>
+						<td>0.204397</td>
+						<td>60.084505</td>
+						<td>60.780523</td>
+						<td>65.997066</td>
+						<td>1.756638</td>
+						<td>0.080745</td>
+						<td>61.338472</td>
+						<td>0.168673</td>
+						<td>0.092589</td>
+						<td>0.261558</td>
+						<td>0.271601</td>
+						<td>0.054145</td>
+						<td>0.622733</td>
+						<td>0.239297</td>
+						<td>1.670114</td>
+						<td>5.479617</td>
+						<td>33.205705</td>
+						<td>9.815100</td>
+						<td>2.796496</td>
+						<td>9.857428</td>
+					  </tr>
+					  <tr>
+						<td>6_days</td>
+						<td>4</td>
+						<td>GHI_season</td>
+						<td>10</td>
+						<td>10</td>
+						<td>0.0</td>
+						<td>19.850629</td>
+						<td>20.409756</td>
+						<td>21.436407</td>
+						<td>0.490103</td>
+						<td>0.071019</td>
+						<td>20.534568</td>
+						<td>75.118674</td>
+						<td>76.320881</td>
+						<td>78.476676</td>
+						<td>1.058276</td>
+						<td>0.041190</td>
+						<td>76.496210</td>
+						<td>0.213767</td>
+						<td>65.236231</td>
+						<td>66.130914</td>
+						<td>67.295442</td>
+						<td>0.681639</td>
+						<td>0.029425</td>
+						<td>66.176909</td>
+						<td>0.184930</td>
+						<td>0.247980</td>
+						<td>0.288729</td>
+						<td>0.310961</td>
+						<td>0.019849</td>
+						<td>0.207048</td>
+						<td>0.285335</td>
+						<td>7.426979</td>
+						<td>12.665936</td>
+						<td>22.202791</td>
+						<td>4.814370</td>
+						<td>1.065232</td>
+						<td>13.135405</td>
+					  </tr>
+					  <tr>
+						<td>5_days</td>
+						<td>3</td>
+						<td>GHI_season_d1</td>
+						<td>10</td>
+						<td>10</td>
+						<td>2.5</td>
+						<td>19.003691</td>
+						<td>20.074801</td>
+						<td>21.671629</td>
+						<td>0.721663</td>
+						<td>0.116020</td>
+						<td>20.248461</td>
+						<td>76.072108</td>
+						<td>76.887405</td>
+						<td>80.582107</td>
+						<td>1.377677</td>
+						<td>0.052331</td>
+						<td>77.366228</td>
+						<td>0.215216</td>
+						<td>65.191234</td>
+						<td>65.566297</td>
+						<td>67.924183</td>
+						<td>0.842121</td>
+						<td>0.037182</td>
+						<td>65.926315</td>
+						<td>0.183392</td>
+						<td>0.174560</td>
+						<td>0.248516</td>
+						<td>0.264371</td>
+						<td>0.027426</td>
+						<td>0.337039</td>
+						<td>0.238912</td>
+						<td>-9.085665</td>
+						<td>11.481909</td>
+						<td>27.417902</td>
+						<td>9.550555</td>
+						<td>2.629321</td>
+						<td>11.871530</td>
+					  </tr>
+					  <tr>
+						<td>4_days</td>
+						<td>1</td>
+						<td>GHI_season_d1</td>
+						<td>5</td>
+						<td>10</td>
+						<td>0.0</td>
+						<td>21.828611</td>
+						<td>21.996289</td>
+						<td>23.625438</td>
+						<td>0.537958</td>
+						<td>0.068910</td>
+						<td>22.218744</td>
+						<td>85.093587</td>
+						<td>85.350272</td>
+						<td>87.984575</td>
+						<td>0.851414</td>
+						<td>0.028102</td>
+						<td>85.676351</td>
+						<td>0.236453</td>
+						<td>70.953699</td>
+						<td>71.284851</td>
+						<td>73.510830</td>
+						<td>0.734430</td>
+						<td>0.029870</td>
+						<td>71.555265</td>
+						<td>0.197481</td>
+						<td>0.178009</td>
+						<td>0.226494</td>
+						<td>0.231140</td>
+						<td>0.015655</td>
+						<td>0.200505</td>
+						<td>0.220503</td>
+						<td>4.155508</td>
+						<td>5.591932</td>
+						<td>22.628200</td>
+						<td>5.769267</td>
+						<td>2.033954</td>
+						<td>7.902110</td>
+					  </tr>
+					  <tr>
+						<td>72_hours</td>
+						<td>1</td>
+						<td>GHI_d1_d2</td>
+						<td>15</td>
+						<td>10</td>
+						<td>0.0</td>
+						<td>25.306077</td>
+						<td>25.500949</td>
+						<td>25.690601</td>
+						<td>0.107781</td>
+						<td>0.013347</td>
+						<td>25.484665</td>
+						<td>93.404479</td>
+						<td>93.935445</td>
+						<td>94.093320</td>
+						<td>0.212059</td>
+						<td>0.006648</td>
+						<td>93.866096</td>
+						<td>0.258878</td>
+						<td>75.422403</td>
+						<td>75.678674</td>
+						<td>75.813669</td>
+						<td>0.145424</td>
+						<td>0.004948</td>
+						<td>75.648216</td>
+						<td>0.208634</td>
+						<td>0.171608</td>
+						<td>0.174386</td>
+						<td>0.183693</td>
+						<td>0.003721</td>
+						<td>0.062349</td>
+						<td>0.175601</td>
+						<td>1.897531</td>
+						<td>3.500906</td>
+						<td>5.882653</td>
+						<td>1.212311</td>
+						<td>1.046286</td>
+						<td>3.446041</td>
+					  </tr>
+					  <tr>
+						<td>48_hours</td>
+						<td>4</td>
+						<td>GHI_season</td>
+						<td>5</td>
+						<td>10</td>
+						<td>43.6</td>
+						<td>27.736209</td>
+						<td>27.953686</td>
+						<td>28.093539</td>
+						<td>0.097133</td>
+						<td>0.011166</td>
+						<td>27.948211</td>
+						<td>96.628361</td>
+						<td>96.823413</td>
+						<td>97.186385</td>
+						<td>0.160167</td>
+						<td>0.005131</td>
+						<td>96.886283</td>
+						<td>0.265878</td>
+						<td>79.355943</td>
+						<td>79.476255</td>
+						<td>79.629136</td>
+						<td>0.086425</td>
+						<td>0.003269</td>
+						<td>79.483320</td>
+						<td>0.218120</td>
+						<td>0.212194</td>
+						<td>0.218068</td>
+						<td>0.221215</td>
+						<td>0.002590</td>
+						<td>0.037029</td>
+						<td>0.217050</td>
+						<td>6.955324</td>
+						<td>9.692385</td>
+						<td>11.309133</td>
+						<td>1.207986</td>
+						<td>0.402223</td>
+						<td>9.528057</td>
+					  </tr>
+					  <tr>
+						<td>24_hours</td>
+						<td>2</td>
+						<td>GHI_season_d1_d2_d3</td>
+						<td>5</td>
+						<td>10</td>
+						<td>36.1</td>
+						<td>46.662528</td>
+						<td>47.198506</td>
+						<td>47.652246</td>
+						<td>0.310306</td>
+						<td>0.019335</td>
+						<td>47.214269</td>
+						<td>124.407217</td>
+						<td>124.686575</td>
+						<td>124.962548</td>
+						<td>0.152004</td>
+						<td>0.003857</td>
+						<td>124.706876</td>
+						<td>0.343474</td>
+						<td>98.554864</td>
+						<td>99.044682</td>
+						<td>99.484204</td>
+						<td>0.311555</td>
+						<td>0.008692</td>
+						<td>99.001231</td>
+						<td>0.272674</td>
+						<td>0.162021</td>
+						<td>0.165718</td>
+						<td>0.169452</td>
+						<td>0.002034</td>
+						<td>0.038910</td>
+						<td>0.165445</td>
+						<td>4.912282</td>
+						<td>8.211792</td>
+						<td>11.791021</td>
+						<td>2.516351</td>
+						<td>0.784159</td>
+						<td>8.500043</td>
+					  </tr>
+					  <tr>
+						<td>12_hours</td>
+						<td>1</td>
+						<td>GHI_season_d1</td>
+						<td>5</td>
+						<td>10</td>
+						<td>34.0</td>
+						<td>46.119895</td>
+						<td>46.991472</td>
+						<td>47.398492</td>
+						<td>0.514750</td>
+						<td>0.026363</td>
+						<td>46.879156</td>
+						<td>118.508150</td>
+						<td>119.801056</td>
+						<td>120.208130</td>
+						<td>0.672240</td>
+						<td>0.013604</td>
+						<td>119.424052</td>
+						<td>0.329485</td>
+						<td>89.604418</td>
+						<td>91.060976</td>
+						<td>91.544403</td>
+						<td>0.863761</td>
+						<td>0.021144</td>
+						<td>90.631749</td>
+						<td>0.250048</td>
+						<td>0.298919</td>
+						<td>0.303659</td>
+						<td>0.318608</td>
+						<td>0.007783</td>
+						<td>0.061085</td>
+						<td>0.308015</td>
+						<td>6.860238</td>
+						<td>9.944548</td>
+						<td>11.109177</td>
+						<td>1.350105</td>
+						<td>0.421044</td>
+						<td>9.520944</td>
+					  </tr>
+					  <tr>
+						<td>6_hours</td>
+						<td>5</td>
+						<td>GHI_season</td>
+						<td>5</td>
+						<td>10</td>
+						<td>9.3</td>
+						<td>54.788814</td>
+						<td>67.261202</td>
+						<td>74.674478</td>
+						<td>5.530571</td>
+						<td>0.260302</td>
+						<td>67.356919</td>
+						<td>91.282864</td>
+						<td>92.552830</td>
+						<td>97.123486</td>
+						<td>1.660510</td>
+						<td>0.054419</td>
+						<td>93.031188</td>
+						<td>0.342321</td>
+						<td>64.899581</td>
+						<td>66.533671</td>
+						<td>74.197635</td>
+						<td>3.038048</td>
+						<td>0.126026</td>
+						<td>67.950568</td>
+						<td>0.250033</td>
+						<td>0.766780</td>
+						<td>0.788213</td>
+						<td>0.793986</td>
+						<td>0.007742</td>
+						<td>0.029968</td>
+						<td>0.785958</td>
+						<td>-35.246258</td>
+						<td>0.443437</td>
+						<td>17.747277</td>
+						<td>15.548392</td>
+						<td>143.774329</td>
+						<td>0.319813</td>
+					  </tr>
+					  <tr>
+						<td>4_hours</td>
+						<td>5</td>
+						<td>GHI_season</td>
+						<td>5</td>
+						<td>10</td>
+						<td>20.7</td>
+						<td>41.249017</td>
+						<td>45.515515</td>
+						<td>46.910204</td>
+						<td>1.546860</td>
+						<td>0.103817</td>
+						<td>45.258064</td>
+						<td>96.362344</td>
+						<td>97.111751</td>
+						<td>98.132969</td>
+						<td>0.579591</td>
+						<td>0.017462</td>
+						<td>97.132708</td>
+						<td>0.301030</td>
+						<td>66.137528</td>
+						<td>67.143455</td>
+						<td>68.572337</td>
+						<td>0.699692</td>
+						<td>0.032394</td>
+						<td>67.122390</td>
+						<td>0.208023</td>
+						<td>0.809204</td>
+						<td>0.813154</td>
+						<td>0.816027</td>
+						<td>0.002232</td>
+						<td>0.008036</td>
+						<td>0.813068</td>
+						<td>-1.082311</td>
+						<td>6.898970</td>
+						<td>11.156610</td>
+						<td>3.984336</td>
+						<td>2.241033</td>
+						<td>5.031284</td>
+					  </tr>
+					  <tr>
+						<td>2_hours</td>
+						<td>4</td>
+						<td>GHI_season</td>
+						<td>10</td>
+						<td>10</td>
+						<td>21.6</td>
+						<td>37.746878</td>
+						<td>39.654405</td>
+						<td>44.097597</td>
+						<td>1.922571</td>
+						<td>0.143438</td>
+						<td>39.945314</td>
+						<td>83.907218</td>
+						<td>84.980242</td>
+						<td>88.926035</td>
+						<td>1.464242</td>
+						<td>0.052046</td>
+						<td>85.313505</td>
+						<td>0.258189</td>
+						<td>55.650526</td>
+						<td>56.599756</td>
+						<td>60.076321</td>
+						<td>1.288204</td>
+						<td>0.067041</td>
+						<td>56.833124</td>
+						<td>0.171997</td>
+						<td>0.870635</td>
+						<td>0.881860</td>
+						<td>0.884825</td>
+						<td>0.004143</td>
+						<td>0.014231</td>
+						<td>0.880900</td>
+						<td>-9.819201</td>
+						<td>1.217354</td>
+						<td>21.715348</td>
+						<td>8.521821</td>
+						<td>11.364975</td>
+						<td>2.404247</td>
+					  </tr>
+					  <tr>
+						<td>1_hour</td>
+						<td>5</td>
+						<td>GHI</td>
+						<td>5</td>
+						<td>10</td>
+						<td>0.0</td>
+						<td>33.449782</td>
+						<td>34.337983</td>
+						<td>35.050763</td>
+						<td>0.547200</td>
+						<td>0.044037</td>
+						<td>34.254961</td>
+						<td>79.532757</td>
+						<td>79.692488</td>
+						<td>80.626222</td>
+						<td>0.354001</td>
+						<td>0.012438</td>
+						<td>79.826806</td>
+						<td>0.228626</td>
+						<td>50.387469</td>
+						<td>50.596626</td>
+						<td>51.082476</td>
+						<td>0.205184</td>
+						<td>0.012392</td>
+						<td>50.636539</td>
+						<td>0.145024</td>
+						<td>0.899211</td>
+						<td>0.901532</td>
+						<td>0.901926</td>
+						<td>0.000879</td>
+						<td>0.002735</td>
+						<td>0.901198</td>
+						<td>5.644984</td>
+						<td>7.573384</td>
+						<td>9.036568</td>
+						<td>1.108877</td>
+						<td>0.418559</td>
+						<td>7.606440</td>
+					  </tr>
+					  <tr>
+						<td>45_minutes</td>
+						<td>5</td>
+						<td>GHI_season</td>
+						<td>5</td>
+						<td>10</td>
+						<td>34.2</td>
+						<td>31.409342</td>
+						<td>36.075401</td>
+						<td>39.019185</td>
+						<td>2.373796</td>
+						<td>0.202811</td>
+						<td>35.682349</td>
+						<td>78.335674</td>
+						<td>78.569636</td>
+						<td>80.678576</td>
+						<td>0.744598</td>
+						<td>0.026761</td>
+						<td>78.934418</td>
+						<td>0.219565</td>
+						<td>48.854872</td>
+						<td>51.695062</td>
+						<td>55.727943</td>
+						<td>1.985272</td>
+						<td>0.118378</td>
+						<td>51.696268</td>
+						<td>0.143799</td>
+						<td>0.899532</td>
+						<td>0.904715</td>
+						<td>0.905282</td>
+						<td>0.001826</td>
+						<td>0.005732</td>
+						<td>0.903821</td>
+						<td>-7.988175</td>
+						<td>5.674523</td>
+						<td>13.755950</td>
+						<td>7.456039</td>
+						<td>5.425870</td>
+						<td>3.748972</td>
+					  </tr>
+					  <tr>
+						<td>30_minutes</td>
+						<td>3</td>
+						<td>GHI_season</td>
+						<td>5</td>
+						<td>10</td>
+						<td>18.0</td>
+						<td>26.587942</td>
+						<td>32.578068</td>
+						<td>37.791779</td>
+						<td>3.608995</td>
+						<td>0.322478</td>
+						<td>32.424006</td>
+						<td>75.497910</td>
+						<td>76.794457</td>
+						<td>78.383980</td>
+						<td>0.987235</td>
+						<td>0.035696</td>
+						<td>76.962672</td>
+						<td>0.212956</td>
+						<td>46.794189</td>
+						<td>48.074541</td>
+						<td>51.320725</td>
+						<td>1.336611</td>
+						<td>0.083286</td>
+						<td>48.503214</td>
+						<td>0.134209</td>
+						<td>0.906846</td>
+						<td>0.910584</td>
+						<td>0.913580</td>
+						<td>0.002306</td>
+						<td>0.007046</td>
+						<td>0.910181</td>
+						<td>-2.480716</td>
+						<td>5.926447</td>
+						<td>14.764022</td>
+						<td>5.553746</td>
+						<td>2.403836</td>
+						<td>6.740884</td>
+					  </tr>
+					  <tr>
+						<td>15_minutes</td>
+						<td>5</td>
+						<td>GHI</td>
+						<td>5</td>
+						<td>10</td>
+						<td>31.9</td>
+						<td>22.154582</td>
+						<td>23.232902</td>
+						<td>25.012526</td>
+						<td>1.068806</td>
+						<td>0.118411</td>
+						<td>23.310946</td>
+						<td>70.751085</td>
+						<td>70.983328</td>
+						<td>72.016961</td>
+						<td>0.397433</td>
+						<td>0.016342</td>
+						<td>71.117675</td>
+						<td>0.193044</td>
+						<td>42.585265</td>
+						<td>42.963853</td>
+						<td>46.628024</td>
+						<td>1.420274</td>
+						<td>0.086763</td>
+						<td>43.721457</td>
+						<td>0.118679</td>
+						<td>0.922759</td>
+						<td>0.924961</td>
+						<td>0.925451</td>
+						<td>0.000845</td>
+						<td>0.002671</td>
+						<td>0.924674</td>
+						<td>-4.737197</td>
+						<td>3.254955</td>
+						<td>6.257837</td>
+						<td>3.523222</td>
+						<td>4.643385</td>
+						<td>2.220906</td>
+					  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+			  <div class="container-fluid p-4">
+				<h1 class="mb-4 text-primary">📊 Persistence Model Evaluation Metrics</h1>
+		  
+				<div class="card">
+				  <div class="card-body">
+					<div class="table-responsive">
+					  <table class="table table-striped table-bordered align-middle mb-0">
+						<thead class="table-primary">
+		<tr style="text-align: right;">
+		  <th>samplingFrequency</th>
+		  <th>accuracy</th>
+		  <th>MAPE</th>
+		  <th>RMSE</th>
+		  <th>nRMSE</th>
+		  <th>MAE</th>
+		  <th>nMAE</th>
+		  <th>R2</th>
+		  <th>MBE</th>
+		  <th>maxNormError</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>15_minutes</td>
+		  <td>50.177129</td>
+		  <td>23.414056</td>
+		  <td>84.574963</td>
+		  <td>0.228271</td>
+		  <td>50.177129</td>
+		  <td>0.135430</td>
+		  <td>0.900873</td>
+		  <td>-0.081997</td>
+		  <td>1.596279</td>
+		</tr>
+		<tr>
+		  <td>30_minutes</td>
+		  <td>68.521499</td>
+		  <td>35.350661</td>
+		  <td>96.551705</td>
+		  <td>0.265422</td>
+		  <td>68.521499</td>
+		  <td>0.188366</td>
+		  <td>0.868527</td>
+		  <td>-0.095590</td>
+		  <td>1.466438</td>
+		</tr>
+		<tr>
+		  <td>45_minutes</td>
+		  <td>87.383004</td>
+		  <td>50.579247</td>
+		  <td>113.817583</td>
+		  <td>0.316307</td>
+		  <td>87.383004</td>
+		  <td>0.242843</td>
+		  <td>0.814716</td>
+		  <td>-0.099523</td>
+		  <td>1.260382</td>
+		</tr>
+		<tr>
+		  <td>1_hour</td>
+		  <td>107.040241</td>
+		  <td>60.056332</td>
+		  <td>135.398621</td>
+		  <td>0.381936</td>
+		  <td>107.040241</td>
+		  <td>0.301942</td>
+		  <td>0.734708</td>
+		  <td>-0.938121</td>
+		  <td>1.271256</td>
+		</tr>
+		<tr>
+		  <td>2_hours</td>
+		  <td>162.550849</td>
+		  <td>95.028218</td>
+		  <td>204.469846</td>
+		  <td>0.596290</td>
+		  <td>162.550849</td>
+		  <td>0.474043</td>
+		  <td>0.353606</td>
+		  <td>-0.251496</td>
+		  <td>1.500080</td>
+		</tr>
+		<tr>
+		  <td>4_hours</td>
+		  <td>228.479274</td>
+		  <td>148.312842</td>
+		  <td>285.620777</td>
+		  <td>0.885285</td>
+		  <td>228.479274</td>
+		  <td>0.708174</td>
+		  <td>-0.515262</td>
+		  <td>-2.130542</td>
+		  <td>1.963000</td>
+		</tr>
+		<tr>
+		  <td>6_hours</td>
+		  <td>229.359197</td>
+		  <td>200.549721</td>
+		  <td>277.328924</td>
+		  <td>0.967101</td>
+		  <td>229.359197</td>
+		  <td>0.799821</td>
+		  <td>-0.906163</td>
+		  <td>-0.371613</td>
+		  <td>1.856170</td>
+		</tr>
+		<tr>
+		  <td>12_hours</td>
+		  <td>115.465222</td>
+		  <td>48.920882</td>
+		  <td>158.200893</td>
+		  <td>0.436694</td>
+		  <td>115.465222</td>
+		  <td>0.318727</td>
+		  <td>0.046205</td>
+		  <td>-2.759278</td>
+		  <td>1.323375</td>
+		</tr>
+		<tr>
+		  <td>24_hours</td>
+		  <td>135.003319</td>
+		  <td>62.887563</td>
+		  <td>183.692388</td>
+		  <td>0.506431</td>
+		  <td>135.003319</td>
+		  <td>0.372198</td>
+		  <td>-0.460350</td>
+		  <td>-5.832944</td>
+		  <td>1.266988</td>
+		</tr>
+		<tr>
+		  <td>48_hours</td>
+		  <td>139.255066</td>
+		  <td>60.492294</td>
+		  <td>178.611381</td>
+		  <td>0.481200</td>
+		  <td>139.255066</td>
+		  <td>0.375170</td>
+		  <td>-0.892819</td>
+		  <td>2.790853</td>
+		  <td>1.209626</td>
+		</tr>
+		<tr>
+		  <td>72_hours</td>
+		  <td>103.665599</td>
+		  <td>31.951756</td>
+		  <td>130.745903</td>
+		  <td>0.342239</td>
+		  <td>103.665599</td>
+		  <td>0.271354</td>
+		  <td>-0.884328</td>
+		  <td>4.186279</td>
+		  <td>0.784901</td>
+		</tr>
+		<tr>
+		  <td>4_days</td>
+		  <td>140.810616</td>
+		  <td>50.429232</td>
+		  <td>176.054413</td>
+		  <td>0.475060</td>
+		  <td>140.810616</td>
+		  <td>0.379959</td>
+		  <td>-1.425633</td>
+		  <td>-4.829251</td>
+		  <td>1.054947</td>
+		</tr>
+		<tr>
+		  <td>5_days</td>
+		  <td>119.760595</td>
+		  <td>35.657390</td>
+		  <td>137.950847</td>
+		  <td>0.355110</td>
+		  <td>119.760595</td>
+		  <td>0.308285</td>
+		  <td>-1.442324</td>
+		  <td>2.353479</td>
+		  <td>0.752046</td>
+		</tr>
+		<tr>
+		  <td>6_days</td>
+		  <td>66.656921</td>
+		  <td>17.751483</td>
+		  <td>75.507060</td>
+		  <td>0.198052</td>
+		  <td>66.656921</td>
+		  <td>0.174838</td>
+		  <td>-0.241957</td>
+		  <td>1.329073</td>
+		  <td>0.347923</td>
+		</tr>
+		<tr>
+		  <td>7_days</td>
+		  <td>92.455071</td>
+		  <td>25.632955</td>
+		  <td>116.183644</td>
+		  <td>0.311868</td>
+		  <td>92.455071</td>
+		  <td>0.248174</td>
+		  <td>-1.245323</td>
+		  <td>-19.921793</td>
+		  <td>0.654416</td>
+		</tr>
+	  </tbody>
+	</table>
+		</div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+
+</html>

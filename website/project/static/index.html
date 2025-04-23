@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Research Cards | MNRE Dashboard</title>
+
+  <!-- CSS -->
+  <link href="./css/app.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="./img/icons/icon-48x48.png" />
+
+  <style>
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .main-content {
+      padding: 2rem;
+    }
+
+    .card-custom {
+      border-left: 5px solid #0d6efd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-5px);
+    }
+
+    .badge-topic {
+      background-color: #e0f3ff;
+      color: #007bff;
+    }
+
+    .icon-section {
+      font-size: 1.5rem;
+      color: #0d6efd;
+    }
+
+    .highlight {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #fff;
+      border-left: 4px solid #198754;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .gauge-container {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar" class="sidebar js-sidebar">
+      <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand d-flex align-items-center" href="/">
+          <img src="img/icons/MNRE.png" alt="MNRE Logo" style="height: 40px; width: auto;">
+        </a>
+        <ul class="sidebar-nav">
+          <li class="sidebar-header">Pages</li>
+          <li class="sidebar-item active"><a class="sidebar-link" href="index.html"><i class="align-middle" data-feather="home"></i><span class="align-middle">Home</span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html"><i class="align-middle" data-feather="book"></i><span class="align-middle">References</span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="maps-google.html"><i class="align-middle" data-feather="tag"></i><span class="align-middle">Parameters</span></a></li>
+          <li class="sidebar-header">Data Analysis</li>
+          <li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html"><i class="align-middle" data-feather="bar-chart-2"></i><span class="align-middle">Charts</span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="pages-profile.html"><i class="align-middle" data-feather="user"></i><span class="align-middle">Overall Data Analysis</span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html"><i class="align-middle" data-feather="bar-chart"></i><span class="align-middle">Model Performance</span></a></li>
+          <li class="sidebar-header">Summary</li>
+          <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html"><i class="align-middle" data-feather="list"></i><span class="align-middle">Overall Summary</span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="ui-forms.html"><i class="align-middle" data-feather="sidebar"></i><span class="align-middle">Q&A</span></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main">
+      <nav class="navbar navbar-expand navbar-light navbar-bg">
+        <a class="sidebar-toggle js-sidebar-toggle">
+          <i class="hamburger align-self-center"></i>
+        </a>
+        <div class="navbar-collapse collapse">
+          <ul class="navbar-nav navbar-align">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                <span class="text-dark">Siva Haritha</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="/overall"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                <a class="dropdown-item" href="/charts"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <h2 class="text-center my-4 text-primary">AI-Based Solar Energy Optimization</h2>
+        <p class="text-center text-muted mb-5">Tools & Technologies Used in this Project</p>
+
+        <!-- Highlights -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="highlight">
+              ✅ <strong>Best Performing Model:</strong> 15-minute interval forecasting
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="highlight">
+              ⚠️ <strong>Worst Performing Model:</strong> 24-hour interval forecasting
+            </div>
+          </div>
+        </div>
+
+        <!-- Gauge Chart -->
+        <div class="gauge-container mb-5" style="max-width: 300px; margin: 0 auto;">
+          <h5 class="text-center mb-3">Overall Forecasting Performance</h5>
+          <canvas id="performanceGauge" height="150" width="150"></canvas>
+        </div>
+
+        <!-- Project Goal Card -->
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="card card-custom p-4">
+              <h5 class="text-primary mb-2">🎯 Main Goal of the Project</h5>
+              <p class="mb-0">To design and evaluate AI-based solar energy forecasting models, integrating them into smart grid systems for improved energy management. The project aims to compare forecasting performance, explore optimization techniques, and contribute to sustainable energy deployment using intelligent data-driven methods.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology Cards -->
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card card-custom p-4 h-100">
+              <h4>🖥️ Frontend</h4>
+              <ul>
+                <li><strong>HTML5:</strong> Page structure and layout</li>
+                <li><strong>CSS3:</strong> Styling and responsiveness</li>
+                <li><strong>Bootstrap 5:</strong> UI components and grid</li>
+                <li><strong>JavaScript:</strong> DOM interaction and logic</li>
+                <li><strong>Chart.js:</strong> Interactive visualizations</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-custom p-4 h-100">
+              <h4>⚙️ Backend & AI</h4>
+              <ul>
+                <li><strong>Python 3.x:</strong> Backend scripting and model control</li>
+                <li><strong>Flask (optional):</strong> Serve predictions via API</li>
+                <li><strong>TensorFlow/Keras:</strong> Deep learning with LSTM</li>
+                <li><strong>scikit-learn:</strong> Preprocessing and validation</li>
+                <li><strong>NumPy & Pandas:</strong> Data manipulation</li>
+                <li><strong>pvlib:</strong> Solar irradiance estimation (GHIcs)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-custom p-4 h-100">
+              <h4>📊 Data Handling</h4>
+              <ul>
+                <li><strong>Dataset:</strong> 10-second interval GHI measurements</li>
+                <li><strong>Cleaning:</strong> NaN handling, outlier removal</li>
+                <li><strong>Features:</strong> kcs, seasonal sinusoidal features, derivatives</li>
+                <li><strong>Validation:</strong> MAE, RMSE, nRMSE, R² metrics</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-custom p-4 h-100">
+              <h4>🌐 Hosting & Integration</h4>
+              <ul>
+                <li><strong>Flask API:</strong> Serve model results to UI</li>
+                <li><strong>GitHub:</strong> Source control and versioning</li>
+                <li><strong>MySQL:</strong> Real-time database (optional)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Project Credit Card -->
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <div class="card card-custom p-4 text-center">
+                <h5 class="text-success mb-2">Project Presented By</h5>
+                <p class="mb-1 fs-5 fw-semibold">Siva Haritha, Intern - NIC Division</p>
+                <p class="text-muted mb-0">Under the mentorship of <strong>Shri. Pankaj Bajaj</strong>, NIC Senior Director (Scientist-F)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Load Chart.js FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Now create your gauge chart -->
+<script>
+  const ctx = document.getElementById('performanceGauge').getContext('2d');
+  const gaugeChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Accuracy %', 'Remaining'],
+      datasets: [{
+        data: [84, 16],
+        backgroundColor: ['#0d6efd', '#e9ecef'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      cutout: '80%',
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: false },
+        title: {
+          display: true,
+          text: '84% Accuracy',
+          font: {
+            size: 18
+          },
+          padding: {
+            top: 10,
+            bottom: 20
+          }
+        }
+      }
+    }
+  });
+</script>
+
+<!-- Your app-specific JS -->
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

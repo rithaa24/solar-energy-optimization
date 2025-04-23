@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Responsive Admin Dashboard Template based on Bootstrap 5" />
+  <meta name="author" content="AdminKit" />
+  <title>Chart.js | AdminKit Demo</title>
+
+  <link rel="shortcut icon" href="static/img/icons/icon-48x48.png" />
+  <link rel="stylesheet" href="./css/app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    #chartjs-doughnut {
+      max-width: 250px;
+      height: 150px;
+      margin: 2rem auto;
+    }
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar js-sidebar">
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="index.html">
+                    <img src="img/icons/MNRE.png" alt="MNRE Logo" style="height: 40px; width: auto;">
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">Pages</li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="index.html">
+                            <i class="align-middle" data-feather="home"></i>
+                            <span class="align-middle">Home</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+						<a class="sidebar-link" href="ui-cards.html">
+							<i class="align-middle" data-feather="book"></i>
+							<span class= "align-middle">References</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="maps-google.html"><i class="align-middle" data-feather="tag">
+                           </i><span class="align-middle">Parameters</span>
+						</a>
+					</li>
+					<li class="sidebar-header">Data Analysis</li>
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="charts-chartjs.html">
+							<i class="align-middle" data-feather="bar-chart-2"></i>
+							<span class="align-middle">Charts</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-profile.html">
+							<i class="align-middle" data-feather="user"></i>
+							<span class="align-middle">Overall Data Analysis</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-blank.html">
+							<i class="align-middle" data-feather="bar-chart"></i>
+							<span class= "align-middle">Model Performance</span>
+						</a>
+					</li>		
+					<li class="sidebar-header">Summary</li>
+          <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">
+			<i class="align-middle" data-feather="list"></i>
+			<span class="align-middle">Overall Summary</span>
+		</a>
+	</li>
+	<li class="sidebar-item"><a class="sidebar-link" href="ui-forms.html">
+		<i class="align-middle" data-feather="sidebar"></i>
+		<span class="align-middle">Q&A</span>
+	     </a>
+           </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                    <span class="text-dark">Siva Haritha</span>
+                </a>
+            </nav>
+
+            <main class="content">
+                <div class="container-fluid p-0">
+                    <div class="mb-3">
+                        <h1 class="h3 d-inline align-middle">Graph Analysis on Solar Energy forecasting</h1>
+                    </div>
+                    <div class="row">
+                        <!-- Line Chart -->
+                        <div class="col-12 col-lg-6">
+                            <div class="card flex-fill w-100">
+                                <div class="card-header">
+                                    <h5 class="card-title">Impact of Sampling Frequency on Accuracy</h5>
+                                    <h6 class="card-subtitle text-muted">Optimal sampling frequency ensures accurate solar energy forecasting by balancing data granularity and system efficiency</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="chartjs-line"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bar Chart 1 -->
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Top Performing Model by Cost Efficiency Score</h5>
+									<h6 class="card-subtitle text-muted">Identifying the highest-performing model based on a balance of accuracy and cost efficiency.</h6>
+								</div>
+								<div class="card-body">
+									<div class="chart">
+										<canvas id="chartjs-bar1"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Doughnut Chart -->
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Model fit: R2 Performance Overview</h5>
+									<h6 class="card-subtitle text-muted">R² tells us how well the model’s predictions match the actual results—the higher the number, the better it works.</h6>
+								</div>
+								<div class="card-body">
+									<div class="chart chart-sm">
+										<canvas id="chartjs-doughnut" width="200" height="100" style="max-width: 250px;"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Scatter Chart -->
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Model Efficiency: Error vs Accuracy Trade-off</h5>
+									<h6 class="card-subtitle text-muted">Visualizing the balance between model accuracy and prediction error to assess overall efficiency.</h6>
+								</div>
+								<div class="card-body">
+									<div class="chart">
+										<canvas id="chartjs-scatter"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Bar Chart 2 -->
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Model Accuracy & Error by Sample Frequency</h5>
+									<h6 class="card-subtitle text-muted">Comparing accuracy and error metrics across different sampling frequencies to evaluate model performance trends and the model’s accuracy changes with how often data is collected—too little or too much can affect the results.</h6>
+								</div>
+								<div class="card-body">
+									<div class="chart">
+										<canvas id="chartjs-bar2"></canvas>
+									</div>
+								</div>
+						</div>
+                </div>
+            </main>
+    <!-- JS and Chart.js -->
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Line chart
+            new Chart(document.getElementById("chartjs-line"), {
+                type: "line",
+                data: {
+                    labels: ["24 Hours", "72 Hours", "48 Hours", "4 Days", "5 Days", "7 Days", "6 Days", "12 Hours", "6 Hours", "4 Hours", "2 Hours", "1 Hour", "45 Minutes", "30 Minutes", "15 Minutes"],
+                    datasets: [{
+                        label: "Sampling Frequency",
+                        fill: true,
+                        backgroundColor: "transparent",
+                        borderColor: window.theme.primary,
+                        data: [0.17, 0.18, 0.22, 0.23, 0.26, 0.27, 0.31, 0.32, 0.79, 0.82, 0.88, 0.90, 0.91, 0.91, 0.93]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        intersect: false
+                    },
+                    hover: {
+                        intersect: true
+                    },
+                    plugins: {
+                        filler: {
+                            propagate: false
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            reverse: true,
+                            gridLines: {
+                                color: "rgba(0,0,0,0.05)"
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                stepSize: 500
+                            },
+                            display: true,
+                            borderDash: [5, 5],
+                            gridLines: {
+                                color: "rgba(0,0,0,0)",
+                                fontColor: "#fff"
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Bar chart
+			new Chart(document.getElementById("chartjs-bar1"), {
+				type: "bar",
+				data: {
+					labels: ["15 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours", "4 Hours", "6 Days", "7 Days", "6 Hours", "5 Days", "4 Days", "48 Hours","72 Hours","12 Hours","24 Hours"],
+					datasets: [{
+						label: "Sampling Frequency",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor: window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [0.04,0.03,0.03,0.03,0.02,0.02,0.02,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0.005],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							gridLines: {
+								display: false
+							},
+							stacked: false,
+							ticks: {
+								stepSize: 20
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							gridLines: {
+								color: "transparent"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const ctx = document.getElementById("chartjs-doughnut");
+		if (ctx) {
+			const value = 80.1;
+
+			const centerTextPlugin = {
+				id: 'centerText',
+				afterDraw(chart) {
+					const { width, height } = chart;
+					const ctx = chart.ctx;
+					ctx.restore();
+
+					const fontSize = (height / 200).toFixed(2); // reduced font size
+					ctx.font = `${fontSize}em Inter`;
+					ctx.textBaseline = "middle";
+
+					const text = `${value}%`;
+					const textX = Math.round((width - ctx.measureText(text).width) / 2);
+					const textY = height / 2; // center for full doughnut
+
+					ctx.fillStyle = '#111';
+					ctx.fillText(text, textX, textY);
+					ctx.save();
+				}
+			};
+
+			new Chart(ctx, {
+				type: "doughnut",
+				data: {
+					labels: ["Model Fit", "Remaining"],
+					datasets: [{
+						data: [value, 100 - value],
+						backgroundColor: [
+							window.theme?.primary || '#007bff',
+							"#dee2e6"
+						],
+						borderWidth: 0
+					}]
+				},
+				options: {
+					cutout: '80%',
+					maintainAspectRatio: false,
+					plugins: {
+						legend: {
+							display: false
+						}
+					}
+				},
+				plugins: [centerTextPlugin]
+			});
+		}
+	});
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const ctx = document.getElementById("chartjs-scatter");
+		if (ctx) {
+			// Custom color for each point (one for each sample frequency)
+			const frequencyData = {
+				"1 hour": [{ x: 33.45, y: 0.90, z: 5 }],
+				"12 hours": [{ x: 46.12, y: 0.32, z: 1 }],
+				"15 minutes": [{ x: 22.15, y: 0.93, z: 5 }],
+				"2 hours": [{ x: 37.75, y: 0.88, z: 4 }],
+				"24 hours": [{ x: 46.66, y: 0.17, z: 2 }],
+				"30 minutes": [{ x: 26.59, y: 0.91, z: 3 }],
+				"4 days": [{ x: 21.83, y: 0.23, z: 1 }],
+				"4 hours": [{ x: 41.25, y: 0.82, z: 5 }],
+				"45 minutes": [{ x: 31.41, y: 0.91, z: 5 }],
+				"48 hours": [{ x: 27.74, y: 0.22, z: 4 }],
+				"5 days": [{ x: 19.00, y: 0.26, z: 3 }],
+				"6 days": [{ x: 19.85, y: 0.31, z: 4 }],
+				"6 hours": [{ x: 54.79, y: 0.79, z: 5 }],
+				"7 days": [{ x: 17.85, y: 0.27, z: 4 }],
+				"72 hours": [{ x: 25.31, y: 0.18, z: 1 }]
+			};
+
+			// Custom colors for each frequency (ensure enough colors)
+			const customColors = [
+				"#007bff", "#e91e63", "#4caf50", "#ff9800", "#9c27b0", "#00bcd4", "#ffc107",
+				"#8bc34a", "#ff5722", "#3f51b5", "#9e9e9e", "#795548", "#2196f3", "#cddc39", "#f44336"
+			];
+
+			const datasets = Object.entries(frequencyData).map(([label, data], index) => ({
+				label,
+				data,
+				backgroundColor: customColors[index % customColors.length],
+				pointRadius: function (context) {
+					const z = context.dataset.data[context.dataIndex].z;
+					return z * 2;
+				}
+			}));
+
+			new Chart(ctx, {
+				type: "scatter",
+				data: { datasets },
+				options: {
+					maintainAspectRatio: false,
+					scales: {
+						x: {
+							type: 'linear',
+							position: 'bottom',
+							title: { display: true, text: 'Input Voltage (V)' }
+						},
+						y: {
+							title: { display: true, text: 'Output Current (A)' }
+						}
+					},
+					plugins: {
+						legend: { display: true },
+						tooltip: {
+							mode: 'nearest',
+							intersect: false,
+							callbacks: {
+								label: function (tooltipItem) {
+									const point = tooltipItem.raw;
+									return `Voltage: ${point.x}, Current: ${point.y}, z: ${point.z}`;
+								}
+							}
+						}
+					}
+				}
+			});
+		}
+	});
+</script>
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		// Bar chart with multiple datasets
+		new Chart(document.getElementById("chartjs-bar2"), {
+			type: "bar",
+			data: {
+				labels: ["15 Minutes", "30 Minutes", "45 Minutes", "1 Hour", "2 Hours", "4 Hours", "6 Days", "7 Days", "6 Hours", "5 Days", "4 Days", "48 Hours", "72 Hours", "12 Hours", "24 Hours"],
+				datasets: [
+					{
+						label: "Sampling Frequency",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor:window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [22.15, 26.59, 31.41, 33.45, 37.75, 41.25, 54.79, 46.12, 19.85, 17.85, 19.00, 21.83, 27.74, 25.31, 46.66],
+						barPercentage: 0.75,
+						categoryPercentage: 0.5
+					},
+					{
+						label: "MAPE min",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor: window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [0.93, 0.91, 0.91, 0.90, 0.88, 0.82, 0.79, 0.32, 0.31, 0.27, 0.26, 0.23, 0.22, 0.18, 0.17],
+						barPercentage: 0.75,
+						categoryPercentage: 0.5
+					}
+				]
+			},
+			options: {
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+						stacked: false,
+						gridLines: {
+							display: false
+						},
+						ticks: {
+							stepSize: 20
+						}
+					}],
+					xAxes: [{
+						stacked: false,
+						gridLines: {
+							color: "transparent"
+						}
+					}]
+				}
+			}
+		});
+	});
+</script>
+</body>
+
+</html>

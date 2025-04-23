@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="./img/icons/icon-48x48.pn" />
+    <link rel="stylesheet" href="./css/app.css">
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/charts-chartjs.html" />
+
+	<title>Chart.js | AdminKit Demo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+					<img src="img/icons/MNRE.png" alt="MNRE Logo" style="height: 40px; width: auto;">
+				</a>
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">Pages</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="index.html">
+							<i class="align-middle" data-feather="home"></i> <span class="align-middle">Home</span>
+						</a>
+					</li>
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="ui-cards.html">
+							<i class="align-middle" data-feather="book"></i> <span class="align-middle">References</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="maps-google.html">
+							<i class="align-middle" data-feather="tag"></i> <span class="align-middle">Parameters</span>
+						</a>
+					</li>
+					<li class="sidebar-header">Data Analysis</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="charts-chartjs.html">
+							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-profile.html">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Overall Data Analysis</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-blank.html">
+							<i class="align-middle" data-feather="bar-chart"></i> <span class="align-middle">Model Performance</span>
+						</a>
+					</li>
+          <li class="sidebar-header">Summary</li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="ui-typography.html">
+            <i class="align-middle" data-feather="list"></i>
+            <span class="align-middle">Overall Summary</span>
+          </a>
+        </li>
+        <li class="sidebar-item"><a class="sidebar-link" href="ui-forms.html">
+          <i class="align-middle" data-feather="sidebar"></i>
+          <span class="align-middle">Q&A</span>
+        </a>
+      </li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="main">
+			<main class="content">
+				<div class="container-fluid p-0">
+					<h1 class="h3 mb-3">Comparative Table: AI-based Solar Energy Research Papers</h1>
+					<p>Here's a <strong>comparative table</strong> summarizing and contrasting the <strong>key features, advantages, and disadvantages</strong> of <strong>six AI-based solar energy research papers</strong>.</p>
+
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped">
+							<thead class="table-dark">
+								<tr>
+									<th>Aspect</th>
+									<th>Paper 1: RELAD-ANN (Hanif et al., 2024)</th>
+									<th>Paper 2: Gen-AI (Mousavi et al., 2025)</th>
+									<th>Paper 3: Forecasting & Grid (Bouquet et al., 2024)</th>
+									<th>Paper 4: AI in PV Tech (Mohammad et al., 2023)</th>
+									<th>Paper 5: AI-Holistic Grid (Wen et al., 2024)</th>
+									<th>Paper 6: AI for RE Systems (Bennagi et al., 2024)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td><strong>Focus</strong></td><td>Solar irradiance forecasting with novel ANN</td><td>Generative AI for solar forecasting & design</td><td>LSTM-based solar forecasting + smart grid integration</td><td>Broad AI applications across PV design & monitoring</td><td>Holistic AI for generation, MPPT, DSM, VPPs</td><td>AI in solar, wind, hydro, microgrids (Review)</td></tr>
+								<tr><td><strong>AI Models Used</strong></td><td>RELAD-ANN, LightGBM, SVR, LSIPF</td><td>GANs, VAEs, RL, cGANs</td><td>LSTM, preprocessing pipeline, CNN</td><td>ML, deep learning, image-based AI</td><td>SVR, ANN, LSTM, CNN, RL, DRL, Autoencoders</td><td>ANN, SVM, BPNN, RBFNN, ANFIS, etc.</td></tr>
+								<tr><td><strong>Data Scope</strong></td><td>Real hourly irradiance (Quetta, Pakistan)</td><td>Conceptual designs, no new dataset</td><td>6-year GHI data (EPFL), 10s resolution</td><td>General narrative, not experimental</td><td>Multiple simulation datasets across use cases</td><td>Literature review, multiple case mentions</td></tr>
+								<tr><td><strong>Performance</strong></td><td>R² = 0.935, MAE = 8.20, MAPE = 3.48%</td><td>No metrics; theory-based</td><td>RMSE, MAE, R², excellent LSTM results across 15 horizons</td><td>No benchmarks</td><td>Extensive metrics (e.g., MAPE, RMSE, DRL cost savings, load smoothing)</td><td>No performance metrics, conceptual analysis</td></tr>
+								<tr><td><strong>Strengths</strong></td><td>Practical, high-accuracy forecasting; compared with 6 models</td><td>Innovative Gen-AI integration; novel use cases</td><td>Cleaned open dataset, multi-horizon, real deployment focus</td><td>Broad, touches materials to smart grids</td><td>End-to-end: MPPT, fault detection, demand-side mgmt, cybersecurity</td><td>Diverse scope; identifies industry trends and gaps</td></tr>
+								<tr><td><strong>Weaknesses</strong></td><td>Limited geographic generalization</td><td>Lacks implementation details and empirical support</td><td>High complexity; heavy reliance on data preprocessing</td><td>Repetitive, lacks structured evaluation</td><td>Scalability, complexity, requires large computing power</td><td>Not experimental; limited technical depth</td></tr>
+								<tr><td><strong>Methodology</strong></td><td>Hybrid AI for real-time forecasting in solar applications</td><td>Conceptual Gen-AI models for solar generation and optimization</td><td>LSTM modeling for forecasting, smart grid integration using AI</td><td>A survey on AI approaches in PV system design, optimization, and monitoring</td><td>Deep integration of AI in grid management from generation to consumption</td><td>Comprehensive review of AI techniques in renewable energy systems</td></tr>
+								<tr><td><strong>Target Audience</strong></td><td>Solar researchers, energy forecasting modelers</td><td>AI researchers, energy system designers, future-forward solutions</td><td>Researchers working on smart grids, solar energy forecasting</td><td>PV designers, solar panel manufacturers, and researchers in the field</td><td>Researchers, utilities, energy management companies</td><td>Researchers, policymakers, energy consultants</td></tr>
+								<tr><td><strong>Data-Driven Approach</strong></td><td>Empirical data analysis (real field data)</td><td>Conceptual, no real data integration</td><td>Data-intensive with real-world data, focused on scalability</td><td>Theoretical, lacks empirical data</td><td>Extensive simulation-based, covering multiple energy systems</td><td>Literature review, covers multiple case studies</td></tr>
+								<tr><td><strong>Use Cases</strong></td><td>Solar irradiance forecasting, energy production estimation</td><td>Conceptual framework for solar forecasting, energy system design</td><td>Solar energy forecasting, grid integration, and forecasting models</td><td>PV design optimization, fault diagnosis, PV system performance</td><td>Smart grid operations, optimization of MPPT, demand-side management</td><td>Comparative analysis of AI techniques in solar, wind, and hydro</td></tr>
+								<tr><td><strong>Unique Contributions</strong></td><td>Combines multiple AI models for improved forecasting accuracy</td><td>Introduces generative AI methods for energy system design</td><td>Real-world, multi-horizon forecasting integrated with grid management</td><td>Focus on broad applications and lifecycle management of PV systems</td><td>Comprehensive approach to AI applications across grid management</td><td>Extensive review of AI in renewable energy, useful for new research</td></tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- Expanded Narrative -->
+<!-- Animated Narrative Cards -->
+<h2 class="mt-5 mb-3">Expanded Narrative Insights per Paper</h2>
+<div class="row">
+    <!-- Paper 1 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="card-body">
+                <h5 class="card-title">1. RELAD-ANN (Hanif et al., 2024)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> High-accuracy forecasting</li>
+                    <li><strong>Unique Strength:</strong> Combines ANN + LightGBM</li>
+                    <li><strong>Limitation:</strong> Based on Quetta region</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card-body">
+                <h5 class="card-title">2. Gen-AI (Mousavi et al., 2025)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> Generative AI in renewables</li>
+                    <li><strong>Unique Strength:</strong> Uses GANs, VAEs</li>
+                    <li><strong>Limitation:</strong> No experimental validation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 3 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="card-body">
+                <h5 class="card-title">3. Forecasting & Grid (Bouquet et al., 2024)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> Forecasting + smart grid</li>
+                    <li><strong>Unique Strength:</strong> Public dataset, real deployment</li>
+                    <li><strong>Limitation:</strong> Complex preprocessing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 4 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="card-body">
+                <h5 class="card-title">4. AI in PV Tech (Mohammad et al., 2023)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> AI in full PV lifecycle</li>
+                    <li><strong>Unique Strength:</strong> Covers design to maintenance</li>
+                    <li><strong>Limitation:</strong> No experimental results</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 5 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card-body">
+                <h5 class="card-title">5. Holistic AI Grid (Wen et al., 2024)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> Full smart grid AI solutions</li>
+                    <li><strong>Unique Strength:</strong> MPPT to cybersecurity</li>
+                    <li><strong>Limitation:</strong> Requires high computing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 6 -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="card-body">
+                <h5 class="card-title">6. AI for RE Systems (Bennagi et al., 2024)</h5>
+                <ul>
+                    <li><strong>Best for:</strong> Review of AI in renewables</li>
+                    <li><strong>Unique Strength:</strong> 150+ studies analyzed</li>
+                    <li><strong>Limitation:</strong> No new methodology</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Future Scope in Animated Cards -->
+<h2 class="mt-5 mb-3">Future Scope and Recommendations</h2>
+<div class="row">
+    <!-- Scope Cards -->
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Hybrid Modeling</strong></h6>
+                <p>Combine generative + predictive models for improved forecasting.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Geographical Diversification</strong></h6>
+                <p>Use data from diverse climates for better generalization.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Standardized Metrics</strong></h6>
+                <p>Enable fair comparisons using unified performance metrics.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Empirical Validation</strong></h6>
+                <p>Test Gen-AI models using real-world experiments.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>AI Interpretability</strong></h6>
+                <p>Apply XAI to increase AI system trust and transparency.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card border-success animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Cross-sector Integration</strong></h6>
+                <p>Incorporate market, weather, and policy signals for better AI decisions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="mt-3">These actions aim to move AI in solar and smart grids toward real-world deployment.</p>
+
+<script src="js/app.js"></script>
+</body>
+
+</html>
+

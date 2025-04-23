@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <meta charset="UTF-8">
+    <title>MNRE - Q&A</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="stylesheet" href="./css/app.css">
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/charts-chartjs.html" />
+
+	<title>Chart.js | AdminKit Demo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+        background-color: #ffffff;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h4 {
+        color: #0d6efd;
+    }
+</style>
+</head>
+<body>
+    <div class="wrapper">
+		<!-- Sidebar -->
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+					<img src="img/icons/MNRE.png"alt="MNRE Logo" style="height: 40px; width: auto;">
+				</a>
+			<ul class="sidebar-nav">
+			  <li class="sidebar-header">Pages</li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="index.html"><i class="align-middle" data-feather="home"></i><span class="align-middle">Home</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html"><i class="align-middle" data-feather="book"></i><span class="align-middle">References</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="maps-google.html"><i class="align-middle" data-feather="tag"></i><span class="align-middle">Parameters</span></a></li>
+			  <li class="sidebar-header">Data Analysis</li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html"><i class="align-middle" data-feather="bar-chart-2"></i><span class="align-middle">Charts</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="pages-profile.html"><i class="align-middle" data-feather="user"></i><span class="align-middle">Overall Data Analysis</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html"><i class="align-middle" data-feather="bar-chart"></i><span class="align-middle">Model Performance</span></a></li>
+			  <li class="sidebar-header">Summary</li>
+			  <li class="sidebar-item active"><a class="sidebar-link" href="ui-typography.html"><i class="align-middle" data-feather="list"></i><span class="align-middle">Overall Summary</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="ui-forms.html"><i class="align-middle" data-feather="sidebar"></i><span class="align-middle">Q&A</span></a></li>
+			</ul>
+		  </div>
+		</nav>
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+              <a class="sidebar-toggle js-sidebar-toggle">
+                <i class="hamburger align-self-center"></i>
+              </a>
+              <div class="navbar-collapse collapse">
+                <ul class="navbar-nav navbar-align">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                      <span class="text-dark">Siva Haritha</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a class="dropdown-item" href="/overall"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                      <a class="dropdown-item" href="/charts"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+                      <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+<div class="container-fluid p-0">
+    <h1 class="mb-5 text-center" data-aos="fade-down">🌞 AI-Based Solar Forecasting Project Summary</h1>
+
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-6" data-aos="fade-up">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">🎯 Project Goal</h4>
+                    <p>Develop an AI-based predictive framework using deep learning (LSTM) to enhance forecasting, efficiency, and economic viability of solar energy systems integrated with smart grid infrastructure.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">⚙️ Technical Methodology</h4>
+                    <ul>
+                        <li>Real-time irradiance data (GHI, GHIcs, kcs) @10s frequency</li>
+                        <li>Forecasting from 15 min to 7 days</li>
+                        <li>LSTM-based deep learning models</li>
+                        <li>Evaluation metrics: MAE, RMSE, nMAE, nRMSE, R² (> 0.9)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6" data-aos="fade-up">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">🌐 Key Outcomes</h4>
+                    <ul>
+                        <li><strong>Accuracy:</strong> 30–50% lower error than traditional models</li>
+                        <li><strong>Cost Savings:</strong> Save Money by get rid of error</li>
+                        <li><strong>Grid Optimization:</strong> 20–40% reduced curtailment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">🧠 AI Integration Benefits</h4>
+                    <ul>
+                        <li>Smart grid automation</li>
+                        <li>Predictive maintenance via anomaly detection</li>
+                        <li>Hybrid ML + DL model options</li>
+                        <li>Scalable to other renewables (wind, hydro)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6" data-aos="fade-up">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">📈 Sustainability & Planning</h4>
+                    <ul>
+                        <li>Supports utility & government energy planning</li>
+                        <li>500K–1M tons CO₂ reduction annually</li>
+                        <li>Open data access with 17M+ records shared</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">🔍 Challenges Solved</h4>
+                    <ul>
+                        <li>Forecast variability → LSTM time-series learning</li>
+                        <li>Market penalties → Precise bidding forecasts</li>
+                        <li>Reserve overuse → Confidence in predictions</li>
+                        <li>Manual work → Automation pipeline</li>
+                        <li>Panel loss → AI-based MPPT optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Card -->
+        <div class="col-12" data-aos="fade-up">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h4 class="card-title">🌍 Final Impact</h4>
+                    <p><strong>AI-powered forecasting enables:</strong></p>
+                    <ul class="mb-2">
+                        <li>✔️ Better accuracy</li>
+                        <li>✔️ Higher ROI</li>
+                        <li>✔️ Lower carbon emissions</li>
+                        <li>✔️ Smarter, scalable clean energy systems</li>
+                    </ul>
+                    <blockquote class="blockquote mb-0">🧠 <em>Smarter forecasting → Efficient energy use → Sustainable growth</em></blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	<!-- JS Scripts -->
+	<script src="js/app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+
+</html>
+
+

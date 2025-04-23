@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <meta charset="UTF-8">
+    <title>MNRE - Q&A</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="stylesheet" href="./css/app.css">
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/charts-chartjs.html" />
+
+	<title>Chart.js | AdminKit Demo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Inter', sans-serif;
+    }
+  
+    .card-custom {
+      border-left: 4px solid #0d6efd;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background-color: #ffffff;
+      transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    }
+  
+    .card-custom:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .card-title {
+      font-weight: 600;
+      color: #0d6efd;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .card-text {
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  
+    .icon-section {
+      font-size: 1.4rem;
+      color: #0d6efd;
+    }
+  
+    .main {
+      padding: 2rem;
+    }
+  
+    .row.g-4 {
+      row-gap: 1.5rem;
+    }
+  
+    @media (max-width: 768px) {
+      .main {
+        padding: 1rem;
+      }
+    }
+  </style>
+  
+
+</head>
+<body>
+  <div class="wrapper">
+		<!-- Sidebar -->
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+					<img src="img/icons/MNRE.png"alt="MNRE Logo" style="height: 40px; width: auto;">
+				</a>
+			<ul class="sidebar-nav">
+			  <li class="sidebar-header">Pages</li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="index.html"><i class="align-middle" data-feather="home"></i><span class="align-middle">Home</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html"><i class="align-middle" data-feather="book"></i><span class="align-middle">References</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="maps-google.html"><i class="align-middle" data-feather="tag"></i><span class="align-middle">Parameters</span></a></li>
+			  <li class="sidebar-header">Data Analysis</li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html"><i class="align-middle" data-feather="bar-chart-2"></i><span class="align-middle">Charts</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="pages-profile.html"><i class="align-middle" data-feather="user"></i><span class="align-middle">Overall Data Analysis</span></a></li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html"><i class="align-middle" data-feather="bar-chart"></i><span class="align-middle">Model Performance</span></a></li>
+			  <li class="sidebar-header">Summary</li>
+			  <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html"><i class="align-middle" data-feather="list"></i><span class="align-middle">Overall Summary</span></a></li>
+			  <li class="sidebar-item active"><a class="sidebar-link" href="ui-forms.html"><i class="align-middle" data-feather="sidebar"></i><span class="align-middle">Q&A</span></a></li>
+			</ul>
+		  </div>
+		</nav>
+	
+		<div class="main">
+		  <nav class="navbar navbar-expand navbar-light navbar-bg">
+			<a class="sidebar-toggle js-sidebar-toggle">
+			  <i class="hamburger align-self-center"></i>
+			</a>
+			<div class="navbar-collapse collapse">
+			  <ul class="navbar-nav navbar-align">
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+					<span class="text-dark">Siva Haritha</span>
+				  </a>
+				  <div class="dropdown-menu dropdown-menu-end">
+					<a class="dropdown-item" href="/overall"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+					<a class="dropdown-item" href="/charts"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+					<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Log out</a>
+				  </div>
+				</li>
+			  </ul>
+			</div>
+		  </nav>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightbulb icon-section"></i> What is LSTM?</h5>
+            <p class="card-text">LSTM (Long Short-Term Memory) is a type of recurrent neural network that excels at learning patterns from time series data by maintaining memory over longer sequences.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-gear icon-section"></i> Why use LSTM for solar forecasting?</h5>
+            <p class="card-text">LSTM models can handle temporal dependencies and nonlinear trends in solar irradiance and generation data, improving forecasting accuracy compared to traditional models.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bar-chart-line icon-section"></i> What data is used in the LSTM model?</h5>
+            <p class="card-text">The LSTM model typically uses historical solar irradiance, and past power generation data as input features for training.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-cpu icon-section"></i> How is the model trained?</h5>
+            <p class="card-text">The model is trained using a loss function like Mean Squared Error (MSE) with backpropagation through time (BPTT), optimized using an algorithm like Adam or RMSprop.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-speedometer2 icon-section"></i> What is the performance metric used?</h5>
+            <p class="card-text">Common metrics include RMSE, MAE, and R² Score, which help evaluate how close the predicted values are to the actual solar power output.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightning-charge icon-section"></i> Can LSTM handle real-time data?</h5>
+            <p class="card-text">Yes, with proper preprocessing and online learning techniques, LSTM can be adapted for real-time or near real-time solar forecasting applications.</p>
+          </div>
+        </div>
+      </div>
+	   <!-- Q1 -->
+	   <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bullseye icon-section"></i> What is the goal of the LSTM-based solar forecasting project?</h5>
+            <p class="card-text">To enhance forecast accuracy and grid reliability across short-term, day-ahead, and long-term horizons using LSTM deep learning integrated with smart grid infrastructure.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-graph-up icon-section"></i> Why is LSTM suitable for solar forecasting?</h5>
+            <p class="card-text">LSTM can capture temporal patterns and long-term dependencies in solar and weather data, outperforming traditional models especially in short-term predictions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-database icon-section"></i> What data is used to train the model?</h5>
+            <p class="card-text">Five years of solar irradiance, temperature, and sky index data, cleaned and preprocessed with feature engineering and normalization for deep learning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-clock icon-section"></i> What forecasting horizons does the model support?</h5>
+            <p class="card-text">Supports short-term (15 min–1 hr), day-ahead (1–24 hrs), and long-term (days to weeks) predictions for better real-time and strategic grid planning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-speedometer2 icon-section"></i> What performance improvements are achieved?</h5>
+            <p class="card-text">MAE reduced by 30–50%, R² increased to 0.85+. Best results in short-term forecasting with R² > 0.9 and reduced prediction errors across all horizons.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-currency-rupee icon-section"></i> What are the economic benefits of accurate AI forecasting?</h5>
+            <p class="card-text">Saves ₹5–10 crores annually via reduced penalties, better bidding, fewer curtailments, and more efficient energy use in a 500 MW solar plant.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-shield-check icon-section"></i> How does AI improve grid stability?</h5>
+            <p class="card-text">Forecasting allows proactive load balancing and fewer frequency deviations, reducing blackouts and curtailment by up to 40%.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bug-fill icon-section"></i> What challenges were faced during development?</h5>
+            <p class="card-text">Missing data, GPU constraints, and system crashes were handled by data cleaning, dropout regularization, and using virtual GPUs for training.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-globe icon-section"></i> What’s the environmental impact of this AI solution?</h5>
+            <p class="card-text">Reduces CO₂ emissions by 500,000–1,000,000 tons/year for large plants by lowering fossil backup usage and optimizing solar deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bar-chart-line icon-section"></i> How can this model support policymakers and investors?</h5>
+            <p class="card-text">Improved forecasting gives investors and planners higher confidence, better risk management, and informed decisions about renewable infrastructure.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Q1 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-exclamation-circle icon-section"></i> What is the main problem addressed by this project?</h5>
+            <p class="card-text">The project tackles the challenge of poor forecasting in solar energy, which causes grid instability, higher costs, and inefficient energy management.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-slash-circle icon-section"></i> Why are traditional forecasting methods insufficient?</h5>
+            <p class="card-text">They cannot model the nonlinear and time-dependent patterns in solar data, especially for short-term and day-ahead forecasts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightning-fill icon-section"></i> What are the consequences of poor forecasting?</h5>
+            <p class="card-text">It leads to imbalance penalties, inefficient dispatch, overuse of backup power, curtailment, and reduced profitability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-cpu icon-section"></i> How does the LSTM solution solve this?</h5>
+            <p class="card-text">The AI-based LSTM model delivers highly accurate forecasts that optimize energy use, improve planning, and reduce costs and curtailment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bar-chart icon-section"></i> What data is used in the model?</h5>
+            <p class="card-text">Five years of solar irradiance (GHI), clear sky index, and temperature data, preprocessed with timestamp-based features.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-clock-history icon-section"></i> What forecasting timelines are supported?</h5>
+            <p class="card-text">Short-term (15 min–1 hr), day-ahead (1–24 hrs), and long-term (up to 7 days) to support grid balancing and energy trading.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-layers icon-section"></i> Why is LSTM ideal for this task?</h5>
+            <p class="card-text">LSTM models learn time-based dependencies in solar data, making them highly effective for accurate time-series forecasting.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-currency-rupee icon-section"></i> How does the model improve economic efficiency?</h5>
+            <p class="card-text">It lowers penalties, improves market bidding, reduces reliance on reserves, and increases revenue through precise generation alignment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-graph-up-arrow icon-section"></i> What are the technical performance results?</h5>
+            <p class="card-text">The model reduces MAE by 30–50% and achieves an R² score of 0.85 or higher, outperforming traditional forecasting methods.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="col-md-6">
+        <div class="card card-custom p-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-globe2 icon-section"></i> How does the project support India's renewable goals?</h5>
+            <p class="card-text">It enables better grid integration, reduces carbon emissions, improves efficiency, and boosts investor confidence in renewable infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/app.js"></script>
+</html>
