@@ -100,8 +100,8 @@ This project does not require deployment. The analysis results are contained in 
 
 
 ## 📄 License
+All rights reserved. No license is granted for the use, modification, or distribution of this code.
 
-TODO: Add license information.  Check for a `LICENSE` file.
 
 
 ---
